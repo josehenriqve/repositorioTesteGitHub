@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		041383F0278601F100566F89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041383EE278601F100566F89 /* Main.storyboard */; };
 		0415614A278C92540005F97B /* ClienteDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04156149278C92540005F97B /* ClienteDao.swift */; };
-		0415614E278CA25A0005F97B /* .gitignore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415614D278CA25A0005F97B /* .gitignore.swift */; };
 		049BA86D2784A1C2002C8315 /* ClienteTableViewCela.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BA86C2784A1C2002C8315 /* ClienteTableViewCela.swift */; };
 		049BA86F2784AD37002C8315 /* CadastroviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BA86E2784AD37002C8315 /* CadastroviewViewController.swift */; };
 		049BA8752784E597002C8315 /* Cliente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049BA8742784E597002C8315 /* Cliente.swift */; };
@@ -258,7 +257,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0415614A278C92540005F97B /* ClienteDao.swift in Sources */,
-				0415614E278CA25A0005F97B /* .gitignore.swift in Sources */,
 				04A6ECD62783BA6700144C97 /* ListaClientesViewController.swift in Sources */,
 				049BA86D2784A1C2002C8315 /* ClienteTableViewCela.swift in Sources */,
 				049BA86F2784AD37002C8315 /* CadastroviewViewController.swift in Sources */,

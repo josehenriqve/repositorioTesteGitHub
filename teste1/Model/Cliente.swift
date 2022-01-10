@@ -35,36 +35,12 @@ class Cliente {
     }
     
     func map() -> Dictionary<String, Any> {
+        
         return [
             "nome": self.nome,
             "idade": self.idade,
             "favorito":self.favorito
         ]
-    }
-    
-    func ordernar(listaClientes:[Cliente]) -> [Cliente] {
-        var listaOrdenada = listaClientes
-        
-          listaOrdenada.sort{ (Cliente, Cliente2) in
-              
-              return (Cliente.getNome().lowercased() < Cliente2.getNome().lowercased())
-              
-          }
-          
-          listaOrdenada.sort{ (Cliente, Cliente2) in
-            
-              return (Cliente.getFavorito())
-            
-          }
-          
-          
-          listaOrdenada.sort{ (Cliente, Cliente2) in
-
-              return (Cliente.getFavorito() && Cliente.getNome().lowercased() < Cliente2.getNome().lowercased())
-          
-          }
-        
-          return listaOrdenada
         
     }
 }

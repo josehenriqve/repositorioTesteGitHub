@@ -11,20 +11,19 @@ class CadastroviewViewController: UIViewController {
  
     @IBOutlet weak var nameField: UITextField?
     @IBOutlet weak var idadeField: UITextField?
-    
-    
     @IBOutlet weak var labelTelaCadastro: UINavigationItem!
     @IBOutlet weak var botaoTelaCadastro: UIButton!
-    
     @IBOutlet weak var navigation: UINavigationItem!
+    
     var enviar: String = ""
     var firebase: Firestore?
     var cliente: Cliente!
-
+    var clienteDAO: ClienteDao!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         firebase = Firestore.firestore()
+        clienteDAO = .init()
         verificaEdicaoeCadastro()
     }
     
@@ -40,6 +39,7 @@ class CadastroviewViewController: UIViewController {
         
       self.present(alertController, animated: true, completion: nil)
     }
+    
     func verificaEdicaoeCadastro() {
         if let clienteSetado = cliente {
             labelTelaCadastro.title = "Editar cliente"
@@ -49,10 +49,6 @@ class CadastroviewViewController: UIViewController {
         }
     }
     
-    
-    
-    
-    
     @IBAction func cadastrarCliente(_ sender: Any) {
        
         if let nome = nameField?.text, let idade = idadeField?.text {
@@ -61,16 +57,21 @@ class CadastroviewViewController: UIViewController {
                 
                 cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: cliente?.getId() ?? "", favorito:false)
                 if cliente.getId() != "" {
-                    editarCliente()
+                    
+                    clienteDAO.editarCliente(cliente: cliente)
+                    
                 } else {
-                    cadastrarCliente()
+                    
+                    clienteDAO.cadastrar(cliente: cliente)
                 }
             } else {
+                
                 self.showAlert(titulo: "Falha", mensagem: "É obrigatorio o preenchimento de todos os campos!")
             }
         }
     }
     
+    /*
     func cadastrarCliente() {
        
         firebase?.collection("clientes").addDocument(data:cliente.map()) { (error) in
@@ -84,7 +85,9 @@ class CadastroviewViewController: UIViewController {
             }
         }
     }
-         
+     */
+    
+     /*
     func editarCliente () {
         firebase?.collection("clientes").document(cliente.getId()).setData(cliente.map()) { (error) in
                 
@@ -97,6 +100,7 @@ class CadastroviewViewController: UIViewController {
             }
         }
     }
+    */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
