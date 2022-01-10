@@ -1,11 +1,5 @@
-//
-//  CadastroviewViewController.swift
-//  teste1
-//
-//  Created by Pede o Menu on 04/01/22.
-//
 import UIKit
-import FirebaseFirestore
+
 
 class CadastroviewViewController: UIViewController {
  
@@ -15,14 +9,11 @@ class CadastroviewViewController: UIViewController {
     @IBOutlet weak var botaoTelaCadastro: UIButton!
     @IBOutlet weak var navigation: UINavigationItem!
     
-    var enviar: String = ""
-    var firebase: Firestore?
     var cliente: Cliente!
     var clienteDAO: ClienteDao!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firebase = Firestore.firestore()
         clienteDAO = .init()
         verificaEdicaoeCadastro()
     }
@@ -31,14 +22,17 @@ class CadastroviewViewController: UIViewController {
         
       let alertController = UIAlertController(title: titulo, message:mensagem, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: {action in
+            
             self.nameField?.text = ""
             self.idadeField?.text = ""
             self.nameField?.becomeFirstResponder()
             self.performSegue(withIdentifier: "viewControllerSegue", sender: nil)
+            
       }))
         
       self.present(alertController, animated: true, completion: nil)
     }
+    
     
     func verificaEdicaoeCadastro() {
         if let clienteSetado = cliente {
@@ -55,14 +49,28 @@ class CadastroviewViewController: UIViewController {
             
             if !nome.trimmingCharacters(in: .whitespaces).isEmpty, !idade.trimmingCharacters(in: .whitespaces).isEmpty{
                 
-                
-                if cliente.getId() != "" {
-                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: cliente?.getId() ?? "", favorito:cliente.getFavorito())
-                    clienteDAO.editarCliente(cliente: cliente)
+                if let ClienteLogado = cliente {
                     
+                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: ClienteLogado.getId(), favorito:cliente.getFavorito())
+                    clienteDAO.editarCliente(cliente: cliente) { editado in
+                        if editado {
+                            self.showAlert(titulo: "Sucesso", mensagem: "Todas as alterações do cliente foram salvas")
+                        } else {
+                            self.showAlert(titulo: "Erro", mensagem: "Erro ao editar o Cliente")
+                        }
+                    }
                 } else {
+                    
                     cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: cliente?.getId() ?? "", favorito:false)
-                    clienteDAO.cadastrar(cliente: cliente)
+                    clienteDAO.cadastrar(cliente: cliente) { cadastrado in
+                        if cadastrado {
+                            
+                            self.showAlert(titulo: "Sucesso", mensagem: "O Cliente foi cadastrado com sucesso!")
+                        } else {
+                            
+                            self.showAlert(titulo: "Erro", mensagem: "Erro ao cadastrar o cliente")
+                        }
+                    }
                 }
             } else {
                 
@@ -70,37 +78,6 @@ class CadastroviewViewController: UIViewController {
             }
         }
     }
-    
-    /*
-    func cadastrarCliente() {
-       
-        firebase?.collection("clientes").addDocument(data:cliente.map()) { (error) in
-                
-            if error != nil {
-                self.showAlert(titulo: "Erro", mensagem: "Erro ao cadastrar o cliente")
-                
-            } else {
-                self.showAlert(titulo: "Sucesso", mensagem: "O Cliente foi cadastrado com sucesso!")
-                
-            }
-        }
-    }
-     */
-    
-     /*
-    func editarCliente () {
-        firebase?.collection("clientes").document(cliente.getId()).setData(cliente.map()) { (error) in
-                
-            if error != nil {
-                self.showAlert(titulo: "Erro", mensagem: "Erro ao editar o Cliente")
-                
-            } else {
-                self.showAlert(titulo: "Sucesso", mensagem: "Todas as alterações do cliente foram salvas")
-                
-            }
-        }
-    }
-    */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }

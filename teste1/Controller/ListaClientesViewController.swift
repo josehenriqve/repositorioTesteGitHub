@@ -1,9 +1,4 @@
-//
-//  ViewController.swift
-//  teste1
-//
-//  Created by Pede o Menu on 03/01/22.
-//
+
 import UIKit
 
 class ListaClientesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -30,7 +25,6 @@ class ListaClientesViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        listaClientes.removeAll()
         atualizarDados()
     }
     
@@ -48,44 +42,37 @@ class ListaClientesViewController: UIViewController, UITableViewDelegate, UITabl
         self.listaClientes.sort{ (Cliente, Cliente2) in
         
             return (Cliente.getNome().lowercased() < Cliente2.getNome().lowercased())
-            
         }
         
         self.listaClientes.sort{ (Cliente, Cliente2) in
             
             return (Cliente.getFavorito())
-        
         }
         
         self.listaClientes.sort{ (Cliente, Cliente2) in
             
             return (Cliente.getFavorito() && Cliente.getNome().lowercased() < Cliente2.getNome().lowercased())
-        
         }
     }
     
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (rowAction, indexPath) in
-            
-            var listaClientesAux = self.listaClientes.remove(at: indexPath.row)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextItem = UIContextualAction(style: .normal, title: "Editar") {  (contextualAction, view, boolValue) in
+            let listaClientesAux = self.listaClientes.remove(at: indexPath.row)
             self.listaClientes.removeAll()
             self.listaClientes.append(listaClientesAux)
             self.performSegue(withIdentifier: "segueEdit", sender: nil)
-            
         }
-        
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
+        let contextItem2 = UIContextualAction(style: .destructive, title: "Deletar") {  (contextualAction, view, boolValue) in
             self.clienteDAO.remover(id: self.listaClientes[indexPath.row].getId())
             
             self.listaClientes.remove(at: indexPath.row)
             tableView.reloadData()
-            
         }
         
-        editAction.backgroundColor = UIColor(red: 0.51, green: 0.76, blue: 0.78, alpha: 1.00)
-        return [deleteAction,editAction]
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem2,contextItem])
+
+        return swipeActions
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -130,10 +117,10 @@ class ListaClientesViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func unwindToController1(segue: UIStoryboardSegue) {
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
         let listaClientesAux = self.listaClientes.remove(at: indexPath.row)
         self.listaClientes.removeAll()
         self.listaClientes.append(listaClientesAux)
@@ -141,5 +128,4 @@ class ListaClientesViewController: UIViewController, UITableViewDelegate, UITabl
         self.atualizarDados()
         
     }
-    
 }

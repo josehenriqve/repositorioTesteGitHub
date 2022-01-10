@@ -1,10 +1,3 @@
-//
-//  ClienteDao.swift
-//  teste1
-//
-//  Created by Pede o Menu on 10/01/22.
-//
-
 import Foundation
 import FirebaseFirestore
 
@@ -16,30 +9,31 @@ struct ClienteDao {
     
     var firebase: Firestore?
    
-    func cadastrar(cliente: Cliente) {
+    func cadastrar(cliente: Cliente, completion: @escaping (Bool) -> Void) {
         
         firebase!.collection("clientes").addDocument(data:cliente.map()) { (error) in
             if error != nil {
                 print("Erro ao cadastrar o usuário")
+                completion(false)
                 
             } else {
                 print("O usuario foi cadastrado com sucesso")
+                completion(true)
                 
             }
         }
         
     }
     
-    func editarCliente (cliente: Cliente) {
+    func editarCliente (cliente: Cliente, completion: @escaping (Bool) -> Void) {
         
         firebase!.collection("clientes").document(cliente.getId()).setData(cliente.map()) { (error) in
             if error != nil {
                 
                 print("Erro ao editar o usuario")
-                
+                completion(false)
                 } else {
-                    
-                    print("Sucesso ao editar o usuario")
+                    completion(true)
                 }
         }
      }
@@ -63,6 +57,7 @@ struct ClienteDao {
             }
         }
      }
+    
     func salvarFavorito(cliente: Cliente) {
         
         if (cliente.getFavorito()) {
