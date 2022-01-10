@@ -55,13 +55,13 @@ class CadastroviewViewController: UIViewController {
             
             if !nome.trimmingCharacters(in: .whitespaces).isEmpty, !idade.trimmingCharacters(in: .whitespaces).isEmpty{
                 
-                cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: cliente?.getId() ?? "", favorito:false)
+                
                 if cliente.getId() != "" {
-                    
+                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: cliente?.getId() ?? "", favorito:cliente.getFavorito())
                     clienteDAO.editarCliente(cliente: cliente)
                     
                 } else {
-                    
+                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: cliente?.getId() ?? "", favorito:false)
                     clienteDAO.cadastrar(cliente: cliente)
                 }
             } else {
