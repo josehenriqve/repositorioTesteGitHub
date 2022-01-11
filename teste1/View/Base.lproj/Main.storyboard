@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vVB-Wd-nq1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -96,18 +97,20 @@
                                     <outlet property="delegate" destination="oTV-EY-tey" id="Ey7-IO-3QQ"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5f-aI-iKd">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5f-aI-iKd">
                                 <rect key="frame" x="340" y="806" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.50588235290000005" green="0.75686274509999996" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="AlU-Ka-YL1"/>
                                     <constraint firstAttribute="height" constant="50" id="VMX-wh-Bxd"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="50"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <size key="titleShadowOffset" width="25" height="25"/>
-                                <buttonConfiguration key="configuration" style="filled" title="+">
-                                    <fontDescription key="titleFontDescription" name="Arial-BoldMT" family="Arial" pointSize="40"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.50588235294117645" green="0.75686274509803919" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="25"/>
@@ -148,29 +151,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4p-ir-z5L">
-                                <rect key="frame" x="137" y="323" width="140" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Fwl-IU-G3H"/>
-                                    <constraint firstAttribute="width" secondItem="p4p-ir-z5L" secondAttribute="height" multiplier="87:31" id="PA7-Ab-ymq"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Cadastrar">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.48627450980392156" green="0.80392156862745101" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <rect key="frame" x="152" y="274" width="110" height="40"/>
+                                <color key="backgroundColor" red="0.48627450979999998" green="0.80392156859999997" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cadastrar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="cadastrarCliente:" destination="pBi-hB-2sF" eventType="touchUpInside" id="gby-WK-blb"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="Iv1-xD-qMA">
-                                <rect key="frame" x="10" y="177" width="394" height="106"/>
+                                <rect key="frame" x="10" y="118" width="394" height="106"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-sO-3Sx">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="39.5"/>
@@ -194,11 +187,11 @@
                         <viewLayoutGuide key="safeArea" id="OMa-5D-Lhs"/>
                         <color key="backgroundColor" red="0.56862745098039214" green="0.56470588235294117" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="p4p-ir-z5L" firstAttribute="centerY" secondItem="45s-Tc-Hkb" secondAttribute="centerY" constant="-100" id="2Js-9Z-sBs"/>
-                            <constraint firstItem="OMa-5D-Lhs" firstAttribute="trailing" secondItem="Iv1-xD-qMA" secondAttribute="trailing" constant="10" id="F0Q-pS-0g8"/>
-                            <constraint firstItem="p4p-ir-z5L" firstAttribute="top" secondItem="Fc0-Wd-Wgc" secondAttribute="bottom" constant="40" id="WKF-h9-7Oe"/>
-                            <constraint firstItem="p4p-ir-z5L" firstAttribute="centerX" secondItem="45s-Tc-Hkb" secondAttribute="centerX" id="ipo-D0-Y4e"/>
-                            <constraint firstItem="Iv1-xD-qMA" firstAttribute="leading" secondItem="OMa-5D-Lhs" secondAttribute="leading" constant="10" id="oEe-xt-eNa"/>
+                            <constraint firstItem="p4p-ir-z5L" firstAttribute="centerX" secondItem="45s-Tc-Hkb" secondAttribute="centerX" id="9AJ-sn-cEF"/>
+                            <constraint firstItem="Iv1-xD-qMA" firstAttribute="top" secondItem="OMa-5D-Lhs" secondAttribute="top" constant="30" id="LXi-QJ-e9I"/>
+                            <constraint firstItem="Iv1-xD-qMA" firstAttribute="leading" secondItem="OMa-5D-Lhs" secondAttribute="leading" constant="10" id="RGO-j3-Udt"/>
+                            <constraint firstItem="p4p-ir-z5L" firstAttribute="top" secondItem="Iv1-xD-qMA" secondAttribute="bottom" constant="50" id="kBc-rO-xbY"/>
+                            <constraint firstItem="OMa-5D-Lhs" firstAttribute="trailing" secondItem="Iv1-xD-qMA" secondAttribute="trailing" constant="10" id="vRi-cO-kZ0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cadastro" id="nF8-bA-HTx"/>

@@ -65,7 +65,6 @@ struct ClienteDao {
         } else {
             cliente.setFavorito(favorito: true)
         }
-        
         firebase?.collection("clientes").document(cliente.getId()).setData(cliente.map()) { (error) in
             
             if error != nil {
@@ -74,5 +73,6 @@ struct ClienteDao {
                 
             }
         }
+        
     }
 }
