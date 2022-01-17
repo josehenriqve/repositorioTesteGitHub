@@ -22,7 +22,6 @@ struct ClienteDao {
                 
             }
         }
-        
     }
     
     func editarCliente (cliente: Cliente, completion: @escaping (Bool) -> Void) {
@@ -50,7 +49,7 @@ struct ClienteDao {
                 
                 for document in snapshot.documents {
                     let dadosContato = document.data()
-                    let cliente = Cliente(nome: dadosContato["nome"] as! String, idade: dadosContato["idade"] as! Int, id:document.documentID,favorito: dadosContato["favorito"] as! Bool )
+                    let cliente = Cliente(nome: dadosContato["nome"] as! String, idade: dadosContato["idade"] as! Int, id:document.documentID,favorito: dadosContato["favorito"] as! Bool, urlImagem: dadosContato["urlImagem"] as! String)
                      listaClientes.append(cliente)
                      completion(listaClientes)
                 }

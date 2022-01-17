@@ -5,6 +5,10 @@ target 'teste1' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'Firebase/Firestore'
+  pod 'FaveButton'
+  pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/Cards'
+  pod 'MaterialComponents/AppBar'
   # Pods for teste1
 
 end

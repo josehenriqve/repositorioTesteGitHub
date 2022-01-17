@@ -24,6 +24,7 @@ class ListaClientesViewController: UIViewController, UITableViewDelegate, UITabl
         
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         atualizarDados()
     }
@@ -101,12 +102,13 @@ class ListaClientesViewController: UIViewController, UITableViewDelegate, UITabl
             return celula
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "segueEdit" {
             
             let vcDestino = segue.destination as! CadastroviewViewController
-            let clienteEnviar: Cliente = Cliente(nome: listaClientes[0].getNome(), idade: listaClientes[0].getIdade(), id: listaClientes[0].getId(),favorito: listaClientes[0].getFavorito())
+            let clienteEnviar: Cliente = Cliente(nome: listaClientes[0].getNome(), idade: listaClientes[0].getIdade(), id: listaClientes[0].getId(),favorito: listaClientes[0].getFavorito(),urlImagem: listaClientes[0].getUrlImagem())
             vcDestino.cliente = clienteEnviar
         }
     }

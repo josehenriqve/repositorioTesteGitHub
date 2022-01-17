@@ -8,20 +8,29 @@ class Cliente {
     private let idade: Int
     private let id: String
     private var favorito: Bool
+    private var urlImagem: String
     
-    init(nome: String, idade: Int, id: String, favorito: Bool) {
+    init(nome: String, idade: Int, id: String, favorito: Bool, urlImagem: String) {
+        
         self.nome = nome
         self.idade = idade
         self.id = id
         self.favorito = favorito
+        self.urlImagem = urlImagem
     }
     
     func setFavorito(favorito: Bool) {
         self.favorito = favorito
     }
+    
     func getNome() -> String{
         return self.nome
     }
+    
+    func getUrlImagem() -> String{
+        return self.nome
+    }
+    
     func getFavorito() -> Bool{
         return self.favorito
     }
@@ -39,7 +48,8 @@ class Cliente {
         return [
             "nome": self.nome,
             "idade": self.idade,
-            "favorito":self.favorito
+            "favorito":self.favorito,
+            "urlImagem":"https://robohash.org/\(nome.hashValue).png"
         ]
         
     }

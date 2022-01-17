@@ -1,5 +1,5 @@
 import UIKit
-
+import FaveButton
 
 class CadastroviewViewController: UIViewController {
  
@@ -15,7 +15,7 @@ class CadastroviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         clienteDAO = .init()
-        verificaEdicaoeCadastro()
+        
     }
     
     func showAlert(titulo: String, mensagem: String) {
@@ -51,7 +51,7 @@ class CadastroviewViewController: UIViewController {
                 
                 if let ClienteLogado = cliente {
                     
-                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: ClienteLogado.getId(), favorito:cliente.getFavorito())
+                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: ClienteLogado.getId(), favorito:cliente.getFavorito(), urlImagem: ClienteLogado.getUrlImagem())
                     clienteDAO.editarCliente(cliente: cliente) { editado in
                         if editado {
                             self.showAlert(titulo: "Sucesso", mensagem: "Todas as alterações do cliente foram salvas")
@@ -61,7 +61,7 @@ class CadastroviewViewController: UIViewController {
                     }
                 } else {
                     
-                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: cliente?.getId() ?? "", favorito:false)
+                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: cliente?.getId() ?? "", favorito:false, urlImagem: "")
                     clienteDAO.cadastrar(cliente: cliente) { cadastrado in
                         if cadastrado {
                             
