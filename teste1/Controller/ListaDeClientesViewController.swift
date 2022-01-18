@@ -147,7 +147,6 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
             celula.cellLabel.text = dadosClientes.getNome()
             celula.cellLabelIdade.text = "\(dadosClientes.getIdade()) \(verificaIadade(idade: dadosClientes.getIdade()))"
             celula.cellImage.downloaded(from: dadosClientes.getUrlImagem())
-            celula.botaoFavorito.idBotao = dadosClientes.getId()
             celula.botaoFavorito.isSelected = true
             celula.cellDelegate = self
             celula.index = indexPath
@@ -158,7 +157,6 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
             celula.cellLabel.text = dadosClientes.getNome()
             celula.cellLabelIdade.text = "\(dadosClientes.getIdade()) \(verificaIadade(idade: dadosClientes.getIdade()))"
             celula.cellImage.downloaded(from: dadosClientes.getUrlImagem())
-            celula.botaoFavorito.idBotao = dadosClientes.getId()
             celula.botaoFavorito.isSelected = false
             celula.cellDelegate = self
             celula.index = indexPath

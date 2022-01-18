@@ -20,13 +20,11 @@
 		049BA8792784E9C5002C8315 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049BA8782784E9C5002C8315 /* GoogleService-Info.plist */; };
 		04A6ECD22783BA6700144C97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6ECD12783BA6700144C97 /* AppDelegate.swift */; };
 		04A6ECD42783BA6700144C97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6ECD32783BA6700144C97 /* SceneDelegate.swift */; };
-		04A6ECD62783BA6700144C97 /* ListaClientesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6ECD52783BA6700144C97 /* ListaClientesViewController.swift */; };
 		04A6ECDB2783BA6800144C97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A6ECDA2783BA6800144C97 /* Assets.xcassets */; };
 		04A6ECDE2783BA6800144C97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A6ECDC2783BA6800144C97 /* LaunchScreen.storyboard */; };
 		04AF8891278E118B00C82267 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF8890278E118B00C82267 /* Card.swift */; };
 		04AF8893278E12EA00C82267 /* NavbarTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF8892278E12EA00C82267 /* NavbarTop.swift */; };
 		04AF8895278E170F00C82267 /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF8894278E170F00C82267 /* NavButton.swift */; };
-		04E7D16B2791F83300F00507 /* CadastroTesteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D16A2791F83300F00507 /* CadastroTesteViewController.swift */; };
 		45AA4CB3B45F4F505EF87B36 /* Pods_teste1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979C159FDDFF16228B200471 /* Pods_teste1.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,14 +44,12 @@
 		04A6ECCE2783BA6700144C97 /* teste1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teste1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A6ECD12783BA6700144C97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A6ECD32783BA6700144C97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04A6ECD52783BA6700144C97 /* ListaClientesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaClientesViewController.swift; sourceTree = "<group>"; };
 		04A6ECDA2783BA6800144C97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A6ECDD2783BA6800144C97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A6ECDF2783BA6800144C97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AF8890278E118B00C82267 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		04AF8892278E12EA00C82267 /* NavbarTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarTop.swift; sourceTree = "<group>"; };
 		04AF8894278E170F00C82267 /* NavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButton.swift; sourceTree = "<group>"; };
-		04E7D16A2791F83300F00507 /* CadastroTesteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroTesteViewController.swift; sourceTree = "<group>"; };
 		405E482D0659BCBE8D0518BA /* Pods-teste1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teste1.debug.xcconfig"; path = "Target Support Files/Pods-teste1/Pods-teste1.debug.xcconfig"; sourceTree = "<group>"; };
 		979C159FDDFF16228B200471 /* Pods_teste1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teste1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7015CC0406AEE8791B53521 /* Pods-teste1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teste1.release.xcconfig"; path = "Target Support Files/Pods-teste1/Pods-teste1.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,9 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				049BA86E2784AD37002C8315 /* CadastroviewViewController.swift */,
-				04A6ECD52783BA6700144C97 /* ListaClientesViewController.swift */,
 				044A6080278F53670081F074 /* ListaDeClientesViewController.swift */,
-				04E7D16A2791F83300F00507 /* CadastroTesteViewController.swift */,
 				0406DAB227973C810076B099 /* DetalhesViewController.swift */,
 			);
 			path = Controller;
@@ -293,8 +287,6 @@
 			files = (
 				0415614A278C92540005F97B /* ClienteDao.swift in Sources */,
 				04AF8891278E118B00C82267 /* Card.swift in Sources */,
-				04A6ECD62783BA6700144C97 /* ListaClientesViewController.swift in Sources */,
-				04E7D16B2791F83300F00507 /* CadastroTesteViewController.swift in Sources */,
 				04AF8893278E12EA00C82267 /* NavbarTop.swift in Sources */,
 				049BA86D2784A1C2002C8315 /* ClienteTableViewCela.swift in Sources */,
 				044A6081278F53670081F074 /* ListaDeClientesViewController.swift in Sources */,
