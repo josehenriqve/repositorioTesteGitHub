@@ -39,6 +39,7 @@ class CadastroviewViewController: UIViewController {
     
     
     func verificaEdicaoeCadastro() {
+        
         if let clienteSetado = cliente {
             labelTelaCadastro.title = "Editar cliente"
             botaoTelaCadastro.setTitle("Salvar", for: .normal)

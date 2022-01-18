@@ -22,9 +22,11 @@ class DetalhesViewController: UIViewController {
         guard let clienteSetado = cliente else{
             return
         }
+        
         imagemPerfilDetalhes.downloaded(from: clienteSetado.getUrlImagem())
         nomeDetalhesLabel.text = clienteSetado.getNome()
         idadeDetalhesLabel.text = String(clienteSetado.getIdade())
+        
     }
     
 }

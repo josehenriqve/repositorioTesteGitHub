@@ -28,6 +28,7 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func atualizarDados() {
+        
         listaClientes.removeAll()
         clienteDAO.pegarClientes { (Clientes) in
             self.listaClientes = Clientes
@@ -94,15 +95,12 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
             self.performSegue(withIdentifier: "SegueEditar", sender: nil)
         }
         
-        //editarButtonCell.image = UIImage(named: "Small Image")
-        
         let detalhesButtonCell = UIContextualAction(style: .normal, title: "Detalhes") {  (contextualAction, view, boolValue) in
             let listaClientesAux = self.listaClientes.remove(at: indexPath.row)
             self.listaClientes.removeAll()
             self.listaClientes.append(listaClientesAux)
             self.performSegue(withIdentifier: "detalhes", sender: nil)
         }
-        //detalhesButtonCell.image = UIImage(named: "Small Image")
         
         let deletarButtonCell = UIContextualAction(style: .destructive, title: "Deletar") {  (contextualAction, view, boolValue) in
             self.clienteDAO.remover(id: self.listaClientes[indexPath.row].getId())
@@ -119,24 +117,26 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "SegueEditar" {
+            
             let vcDestino = segue.destination as! CadastroviewViewController
             let clienteEnviar: Cliente = Cliente(nome: listaClientes[0].getNome(), idade: listaClientes[0].getIdade(), id: listaClientes[0].getId(),favorito: listaClientes[0].getFavorito(),urlImagem: listaClientes[0].getUrlImagem())
             print("O cliente foi enviado\(clienteEnviar.getNome())")
             vcDestino.cliente = clienteEnviar
         }
+        
         if segue.identifier == "detalhes" {
             
             let vcDestino = segue.destination as! DetalhesViewController
             let clienteEnviar: Cliente = Cliente(nome: listaClientes[0].getNome(), idade: listaClientes[0].getIdade(), id: listaClientes[0].getId(),favorito: listaClientes[0].getFavorito(),urlImagem: listaClientes[0].getUrlImagem())
             print("O detalhes fpo\(clienteEnviar.getNome())")
             vcDestino.cliente = clienteEnviar
-            
         }
     }
     
     @IBAction func unwindToListaViewController(_ unwindSegue: UIStoryboardSegue) {
        
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let celula = tableView.dequeueReusableCell(withIdentifier: "celulaReusoCliente", for: indexPath) as! CelulaTableViewCell
