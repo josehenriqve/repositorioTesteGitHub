@@ -9,13 +9,17 @@ class CadastroviewViewController: UIViewController {
     @IBOutlet weak var botaoTelaCadastro: UIButton!
     @IBOutlet weak var navigation: UINavigationItem!
     
+    @IBOutlet weak var voltar: UINavigationItem!
+    
     var cliente: Cliente!
     var clienteDAO: ClienteDao!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         clienteDAO = .init()
-        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        //voltar.backBarButtonItem?.customView?.isHidden = false
+        verificaEdicaoeCadastro()
     }
     
     func showAlert(titulo: String, mensagem: String) {
@@ -82,5 +86,8 @@ class CadastroviewViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
     
-   
+    @IBAction func unwindToViewController2(_ unwindSegue: UIStoryboardSegue) {
+        
+        // Use data from the view controller which initiated the unwind segue
+    }
 }

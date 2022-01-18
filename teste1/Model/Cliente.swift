@@ -28,7 +28,7 @@ class Cliente {
     }
     
     func getUrlImagem() -> String{
-        return self.nome
+        return "https://robohash.org/\(nome.hashValue).png"
     }
     
     func getFavorito() -> Bool{
@@ -50,6 +50,7 @@ class Cliente {
             "idade": self.idade,
             "favorito":self.favorito,
             "urlImagem":"https://robohash.org/\(nome.hashValue).png"
+            
         ]
         
     }

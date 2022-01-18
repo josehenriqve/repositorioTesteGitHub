@@ -8,6 +8,6 @@
 import Foundation
 import FaveButton
 
-class botao: FaveButton {
-    
+class botao: FaveButton{
+    var idBotao: String = ""
 }
