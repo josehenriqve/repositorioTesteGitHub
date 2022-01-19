@@ -1,5 +1,6 @@
 import UIKit
 import FaveButton
+import IQKeyboardManagerSwift
 
 class CadastroviewViewController: UIViewController {
  
@@ -19,7 +20,13 @@ class CadastroviewViewController: UIViewController {
         clienteDAO = .init()
         navigationController?.setNavigationBarHidden(false, animated: false)
         //voltar.backBarButtonItem?.customView?.isHidden = false
+        idadeField?.addDoneOnKeyboardWithTarget(self, action: #selector(cadastrarCliente))
         verificaEdicaoeCadastro()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("clickou")
+        self.view.endEditing(true)
     }
     
     func showAlert(titulo: String, mensagem: String) {
@@ -59,21 +66,23 @@ class CadastroviewViewController: UIViewController {
                     cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: ClienteLogado.getId(), favorito:cliente.getFavorito(), urlImagem: ClienteLogado.getUrlImagem())
                     clienteDAO.editarCliente(cliente: cliente) { editado in
                         if editado {
+                            
                             self.showAlert(titulo: "Sucesso", mensagem: "Todas as alterações do cliente foram salvas")
                         } else {
+                            
                             self.showAlert(titulo: "Erro", mensagem: "Erro ao editar o Cliente")
                         }
                     }
                 } else {
+                    let urlImagem: String = "https://robohash.org/\(nome).png".trimmingCharacters(in: .whitespaces)
+                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: "", favorito: false, urlImagem: urlImagem)
+                   
                     
-                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: cliente?.getId() ?? "", favorito:false, urlImagem: "")
                     clienteDAO.cadastrar(cliente: cliente) { cadastrado in
                         if cadastrado {
-                            
-                            self.showAlert(titulo: "Sucesso", mensagem: "O Cliente foi cadastrado com sucesso!")
+                            self.showAlert(titulo: "Sucesso", mensagem: "O cliente foi cadastrado")
                         } else {
-                            
-                            self.showAlert(titulo: "Erro", mensagem: "Erro ao cadastrar o cliente")
+                            self.showAlert(titulo: "Erro", mensagem: "Erro ao tentar cadastrar o cliente")
                         }
                     }
                 }

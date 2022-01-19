@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FaveButton
 import MaterialComponents.MaterialButtons
-
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         FaveButton.init()
+        IQKeyboardManager.shared.enable = true
         return true
     }
 

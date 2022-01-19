@@ -9,6 +9,7 @@ target 'teste1' do
   pod 'MaterialComponents/Buttons'
   pod 'MaterialComponents/Cards'
   pod 'MaterialComponents/AppBar'
+  pod 'IQKeyboardManagerSwift'
   # Pods for teste1
 
 end

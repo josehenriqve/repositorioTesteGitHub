@@ -18,49 +18,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4p-ir-z5L">
-                                <rect key="frame" x="163.5" y="254" width="87.5" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="Iv1-xD-qMA">
+                                <rect key="frame" x="10" y="118" width="394" height="95"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-sO-3Sx">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Idade" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fc0-Wd-Wgc">
+                                        <rect key="frame" x="0.0" y="61" width="394" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4p-ir-z5L">
+                                <rect key="frame" x="0.0" y="253" width="414" height="31"/>
                                 <color key="backgroundColor" red="0.1695508063" green="0.55124133829999999" blue="0.99537330869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Cadastrar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="tinted" title="Cadastrar">
+                                <buttonConfiguration key="configuration" style="filled" title="Cadastrar">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="cadastrarCliente:" destination="pBi-hB-2sF" eventType="touchUpInside" id="gby-WK-blb"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="Iv1-xD-qMA">
-                                <rect key="frame" x="10" y="118" width="394" height="106"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-sO-3Sx">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="39.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Idade" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fc0-Wd-Wgc">
-                                        <rect key="frame" x="0.0" y="66.5" width="394" height="39.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OMa-5D-Lhs"/>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="p4p-ir-z5L" firstAttribute="centerX" secondItem="45s-Tc-Hkb" secondAttribute="centerX" id="9AJ-sn-cEF"/>
+                            <constraint firstItem="p4p-ir-z5L" firstAttribute="top" secondItem="Fc0-Wd-Wgc" secondAttribute="bottom" constant="40" id="0aq-wq-09c"/>
                             <constraint firstItem="Iv1-xD-qMA" firstAttribute="top" secondItem="OMa-5D-Lhs" secondAttribute="top" constant="30" id="LXi-QJ-e9I"/>
+                            <constraint firstItem="p4p-ir-z5L" firstAttribute="leading" secondItem="OMa-5D-Lhs" secondAttribute="leading" id="P2s-OF-WYC"/>
+                            <constraint firstItem="p4p-ir-z5L" firstAttribute="trailing" secondItem="OMa-5D-Lhs" secondAttribute="trailing" id="QF7-v6-v5I"/>
                             <constraint firstItem="Iv1-xD-qMA" firstAttribute="leading" secondItem="OMa-5D-Lhs" secondAttribute="leading" constant="10" id="RGO-j3-Udt"/>
-                            <constraint firstItem="p4p-ir-z5L" firstAttribute="top" secondItem="Iv1-xD-qMA" secondAttribute="bottom" constant="30" id="kBc-rO-xbY"/>
                             <constraint firstItem="OMa-5D-Lhs" firstAttribute="trailing" secondItem="Iv1-xD-qMA" secondAttribute="trailing" constant="10" id="vRi-cO-kZ0"/>
                         </constraints>
                     </view>
@@ -77,7 +83,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nij-i3-ESU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Fvs-7C-bd5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5814" y="110"/>
+            <point key="canvasLocation" x="5813.04347826087" y="109.82142857142857"/>
         </scene>
         <!--Clientes-->
         <scene sceneID="Nzc-Mk-egn">
@@ -207,6 +213,9 @@
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fi6-Oi-r3j" secondAttribute="trailing" constant="20" symbolic="YES" id="v3n-fr-lu2"/>
                                                         <constraint firstItem="iz8-vz-bG8" firstAttribute="leading" secondItem="fHQ-yK-vfW" secondAttribute="leading" constant="15" id="wzN-DH-rM7"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -220,10 +229,10 @@
                                         <connections>
                                             <outlet property="ImagemPequena" destination="IZg-GS-rwA" id="YfV-6E-Qyd"/>
                                             <outlet property="botaoFavorito" destination="Y4J-F8-JW2" id="cGy-x8-Ij6"/>
+                                            <outlet property="cardTableView" destination="fHQ-yK-vfW" id="hDN-gE-J0F"/>
                                             <outlet property="cellImage" destination="iz8-vz-bG8" id="ADC-Nj-Nii"/>
                                             <outlet property="cellLabel" destination="DVa-Mi-v9H" id="IBg-Sy-lrE"/>
                                             <outlet property="cellLabelIdade" destination="Fi6-Oi-r3j" id="9zW-Xn-Qjy"/>
-                                            <outlet property="viewCell" destination="fHQ-yK-vfW" id="VSf-ql-PT1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -348,6 +357,9 @@
                                                         <integer key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="trocarHash:" destination="LQN-QG-9Ua" eventType="touchUpInside" id="EhG-a8-bxB"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCL-8N-9XU">
                                                 <rect key="frame" x="54" y="0.0" width="30" height="30"/>
@@ -372,6 +384,9 @@
                                                         <integer key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="email:" destination="LQN-QG-9Ua" eventType="touchUpInside" id="ISw-gK-KO3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbj-ba-7JB">
                                                 <rect key="frame" x="108" y="0.0" width="30" height="30"/>
@@ -396,6 +411,9 @@
                                                         <integer key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="telefone:" destination="LQN-QG-9Ua" eventType="touchUpInside" id="fW8-hu-q2p"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -516,9 +534,13 @@
                     <navigationItem key="navigationItem" id="ngi-c9-wRy"/>
                     <connections>
                         <outlet property="idadeDetalhesLabel" destination="jzE-wi-DX4" id="ny6-r6-bCU"/>
+                        <outlet property="imagemDetalhes" destination="jE3-QN-RCE" id="0YZ-1r-ii2"/>
                         <outlet property="imagemPequenaDetalhes" destination="DyA-bh-0mK" id="BXr-su-ur8"/>
                         <outlet property="imagemPerfilDetalhes" destination="rD7-5y-qk6" id="dWa-g0-miC"/>
+                        <outlet property="mensagensDetalhes" destination="jCL-8N-9XU" id="x5L-nB-RuY"/>
+                        <outlet property="navBar" destination="ngi-c9-wRy" id="8FD-Nc-HJZ"/>
                         <outlet property="nomeDetalhesLabel" destination="zSx-hH-Ioz" id="B10-HB-fWB"/>
+                        <outlet property="telefoneDetalhes" destination="zbj-ba-7JB" id="gCP-gd-zIh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ufj-0I-c5S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

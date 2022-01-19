@@ -404,6 +404,7 @@ PODS:
     - BoringSSL-GRPC (= 0.0.7)
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
+  - IQKeyboardManagerSwift (6.5.9)
   - leveldb-library (1.22.1)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/AppBar (124.2.0):
@@ -517,6 +518,7 @@ PODS:
 DEPENDENCIES:
   - FaveButton
   - Firebase/Firestore
+  - IQKeyboardManagerSwift
   - MaterialComponents/AppBar
   - MaterialComponents/Buttons
   - MaterialComponents/Cards
@@ -534,6 +536,7 @@ SPEC REPOS:
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
+    - IQKeyboardManagerSwift
     - leveldb-library
     - MaterialComponents
     - MDFInternationalization
@@ -553,6 +556,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
@@ -560,6 +564,6 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 0fd1d5c83010ece67dc8c4b9e40eb22f1563d3d8
+PODFILE CHECKSUM: 18e04e6da8ffd03b200fc76a9b80d21b094526e5
 
 COCOAPODS: 1.11.2

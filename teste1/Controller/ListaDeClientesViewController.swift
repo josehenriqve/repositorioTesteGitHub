@@ -10,11 +10,12 @@ import UIKit
 class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
-    
     @IBOutlet weak var tableView: UITableView!
     var listaClientes: [Cliente] = []
     var clienteDAO: ClienteDao!
     @IBOutlet weak var barra: UINavigationItem!
+    
+    
     
     override func viewDidLoad() {
         
@@ -23,12 +24,11 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
-       
+        
         
     }
     
     func atualizarDados() {
-        
         listaClientes.removeAll()
         clienteDAO.pegarClientes { (Clientes) in
             self.listaClientes = Clientes
@@ -88,18 +88,13 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
        
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
         let editarButtonCell = UIContextualAction(style: .normal, title: "Editar") {  (contextualAction, view, boolValue) in
             let listaClientesAux = self.listaClientes.remove(at: indexPath.row)
             self.listaClientes.removeAll()
             self.listaClientes.append(listaClientesAux)
             self.performSegue(withIdentifier: "SegueEditar", sender: nil)
-        }
-        
-        let detalhesButtonCell = UIContextualAction(style: .normal, title: "Detalhes") {  (contextualAction, view, boolValue) in
-            let listaClientesAux = self.listaClientes.remove(at: indexPath.row)
-            self.listaClientes.removeAll()
-            self.listaClientes.append(listaClientesAux)
-            self.performSegue(withIdentifier: "detalhes", sender: nil)
+            
         }
         
         let deletarButtonCell = UIContextualAction(style: .destructive, title: "Deletar") {  (contextualAction, view, boolValue) in
@@ -109,8 +104,7 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
         }
         
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [deletarButtonCell, editarButtonCell, detalhesButtonCell])
-        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deletarButtonCell, editarButtonCell])
         return swipeActions
     }
     
@@ -120,7 +114,6 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
             
             let vcDestino = segue.destination as! CadastroviewViewController
             let clienteEnviar: Cliente = Cliente(nome: listaClientes[0].getNome(), idade: listaClientes[0].getIdade(), id: listaClientes[0].getId(),favorito: listaClientes[0].getFavorito(),urlImagem: listaClientes[0].getUrlImagem())
-            print("O cliente foi enviado\(clienteEnviar.getNome())")
             vcDestino.cliente = clienteEnviar
         }
         
@@ -128,7 +121,6 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
             
             let vcDestino = segue.destination as! DetalhesViewController
             let clienteEnviar: Cliente = Cliente(nome: listaClientes[0].getNome(), idade: listaClientes[0].getIdade(), id: listaClientes[0].getId(),favorito: listaClientes[0].getFavorito(),urlImagem: listaClientes[0].getUrlImagem())
-            print("O detalhes fpo\(clienteEnviar.getNome())")
             vcDestino.cliente = clienteEnviar
         }
     }
@@ -150,6 +142,8 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
             celula.botaoFavorito.isSelected = true
             celula.cellDelegate = self
             celula.index = indexPath
+            celula.cellViewDelegate = self
+            celula.index2 = indexPath
             return celula
             
         } else {
@@ -160,11 +154,16 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
             celula.botaoFavorito.isSelected = false
             celula.cellDelegate = self
             celula.index = indexPath
+            celula.cellViewDelegate = self
+            celula.index2 = indexPath
             return celula
             
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Toquei")
+    }
     
     func verificaIadade(idade: Int) -> String{
         return idade == 1 ? "ano": "anos"
@@ -172,10 +171,18 @@ class ListaDeClientesViewController: UIViewController, UITableViewDelegate, UITa
     
 }
 
-extension ListaDeClientesViewController: TableViewNew {
-    func onClickCell(index: Int) {
+extension ListaDeClientesViewController: botaoDelegate {
+    
+    func onClickButton(index: Int) {
+         
         clienteDAO.salvarFavorito(cliente: listaClientes[index])
         self.atualizarDados()
     }
 
+}
+extension ListaDeClientesViewController: celulaDelegate {
+    func onClickCelula(index: Int) {
+        
+        self.performSegue(withIdentifier: "detalhes", sender: nil)
+    }
 }
