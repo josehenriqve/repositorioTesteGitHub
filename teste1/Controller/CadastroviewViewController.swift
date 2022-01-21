@@ -74,8 +74,10 @@ class CadastroviewViewController: UIViewController {
                         }
                     }
                 } else {
-                    let urlImagem: String = "https://robohash.org/\(nome).png".trimmingCharacters(in: .whitespaces)
-                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: "", favorito: false, urlImagem: urlImagem)
+                    let urlImagem: String = "https://robohash.org/\(nome).png"
+                    let  a = urlImagem.filter { !$0.isWhitespace }
+                    print(a)
+                    cliente = Cliente(nome: nome, idade: Int(idade) ?? 0, id: "", favorito: false, urlImagem: urlImagem.filter { !$0.isWhitespace })
                    
                     
                     clienteDAO.cadastrar(cliente: cliente) { cadastrado in

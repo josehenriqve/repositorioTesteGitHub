@@ -182,7 +182,11 @@ extension ListaDeClientesViewController: botaoDelegate {
 }
 extension ListaDeClientesViewController: celulaDelegate {
     func onClickCelula(index: Int) {
+        let listaClientesAux = self.listaClientes.remove(at: index)
+        self.listaClientes.removeAll()
+        self.listaClientes.append(listaClientesAux)
         
         self.performSegue(withIdentifier: "detalhes", sender: nil)
+        self.atualizarDados()
     }
 }
